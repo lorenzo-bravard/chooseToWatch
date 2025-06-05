@@ -13,3 +13,7 @@
 
 - **NextJS Latest**
 - **Tailwind + DaisyUI**
+
+## API :
+
+ - **The Movie Database (TMDb)**
