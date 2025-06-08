@@ -1,9 +1,18 @@
-import Image from "next/image";
+import { Card, CardHeader } from "@/src/components/ui/card";
+import Hero from "@/src/components/hero";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1>Patate</h1>
+    <div className="h-full flex flex-col items-center justify-center">
+    <Hero />
+    <Card className="w-[350px]">
+      <CardHeader className="flex flex-col items-center"> Head </CardHeader>
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-lg">Welcome to Patate!</p>
+        <p className="text-sm text-gray-500">Your potato management app</p>
+      </div>
+      </Card>
     </div>
+    
   );
 }
