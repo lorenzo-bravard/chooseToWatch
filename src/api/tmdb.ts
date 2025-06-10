@@ -1,5 +1,3 @@
-import { pages } from "next/dist/build/templates/app-page";
-
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
@@ -22,14 +20,19 @@ function tmbdFetch(endpoint: string, params: Record<string, string | number> = {
   });
 }
 
-export async function getTrendingMoviesPage1() {
-  return tmbdFetch('movie/popular', {
-    language: 'en-fr', page: 1, region: 'FR'}
-  );
+export interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  overview: string;
+  adult: boolean;
+  genre_ids: number[];
 }
 
-export async function getTrendingMoviesPage2() {
-    return tmbdFetch('movie/popular', {
-      language: 'en-fr', page: 2, region: 'FR'}
-    );
+export async function getTrendingMoviesByPage(page: number): Promise<Movie[]> {
+  // Fetch full response from TMDB
+  const data = await tmbdFetch('movie/popular', { language: 'fr-FR', region: 'FR', page });
+  // Extract and filter out adult content
+  const results: Movie[] = data.results;
+  return results.filter(movie => !movie.adult);
 }
