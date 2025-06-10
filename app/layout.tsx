@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/src/components/ui/navigation-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +35,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      <body        
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <div className="fixed inset-0 bg-[var(--color-base-300)] z-0"></div>
+      
+      <NavigationMenu className="absolute h-auto z-99 right-5 top-3 text-[var(--color-base-100)]">
+      <NavigationMenuList>
+      <NavigationMenuItem>
+      <NavigationMenuLink asChild>
+        <Link href="/" className="bg-[var(--color-neutra)] backdrop-blur-xl drop-shadow-xs drop-shadow-indigo-200/50 text-shadow-lg/20">
+        Home</Link>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+    <NavigationMenuLink asChild>
+        <Link href="/watch-list" className="text-[var(--color-indigo-50)] bg-[var(--color-indigo-500)] drop-shadow-sm drop-shadow-indigo-500/80
+        hover:bg-[var(--color-indigo-700)] px-4 py-2 rounded-md transition-colors duration-300
+        ">Watch List</Link>
+      </NavigationMenuLink>
+  </NavigationMenuList>
+</NavigationMenu>
         {children}
       </body>
     </html>

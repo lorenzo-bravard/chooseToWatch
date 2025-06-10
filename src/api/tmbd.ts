@@ -24,12 +24,12 @@ function tmbdFetch(endpoint: string, params: Record<string, string | number> = {
 
 export async function getTrendingMoviesPage1() {
   return tmbdFetch('movie/popular', {
-    language: 'en-fr', page: 1, region: 'FR'}
+    language: 'en-fr', page:  Math.floor(Math.random() * 30) + 1, region: 'FR'}
   );
 }
 
 export async function getTrendingMoviesPage2() {
     return tmbdFetch('movie/popular', {
-      language: 'en-fr', page: 2, region: 'FR'}
+      language: 'en-fr', page:  Math.floor(Math.random() * 30) + 1, region: 'FR'}
     );
 }

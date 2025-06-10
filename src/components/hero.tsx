@@ -29,7 +29,7 @@ function Hero() {
       <div className="absolute inset-0 bg-black z-0 flex flex-col">
         {/* Ligne 1 */}
         <div className="h-1/2 w-full overflow-hidden">
-          <div className="flex whitespace-nowrap min-w-max animate-scroll gap-4 h-full py-7">
+          <div className="flex whitespace-nowrap min-w-max animate-scroll gap-4 h-full pt-3 pb-2">
             {[...movies, ...movies].map((movie, i) => (
               <img
                 key={`line1-${i}`}
@@ -43,7 +43,7 @@ function Hero() {
   
         {/* Ligne 2 (inverse) */}
         <div className="h-1/2 w-full overflow-hidden">
-          <div className="flex whitespace-nowrap min-w-max animate-scroll-reverse gap-4 h-full py-7">
+          <div className="flex whitespace-nowrap min-w-max animate-scroll-reverse gap-4 h-full pt-2 pb-3">
             {[...movies2, ...movies2].map((movie, i) => (
               <img
                 key={`line2-${i}`}
